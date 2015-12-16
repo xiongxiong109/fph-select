@@ -10,18 +10,21 @@
 	<title>房品汇--圣诞大匹配</title>
 </head>
 <body>
-	<canvas id="snowCan"></canvas>
+	<canvas id="canvas"></canvas>
 	<div class="main-wrap cl">
-		<div class="person-box fl"></div>
+		<div class="person-box fl">
+			<div class="person-title">您的队伍</div>
+			<div class="person-head">
+				<img src="img/placeholder.png">
+			</div>
+		</div>
 		<div class="select-box fl"></div>
 		<div class="person-box fl"></div>
 		<div class="info-box fl"></div>
 	</div>
 	<script type="text/javascript" src="../lib/jquery/dist/jquery.min.js"></script>
 	<script type="text/javascript" src="../lib/underscore/underscore-min.js"></script>
+	<script type="text/javascript" src="../lib/createjs/easeljs-NEXT.min.js"></script>
 	<script type="text/javascript" src="js/snow.js"></script>
-	<script type="text/javascript">
-		$("#snowCan").snow();
-	</script>
 </body>
 </html>
