@@ -9,7 +9,7 @@ $(window).on('resize',function(){
 });
 function resizeCan(){
 	canvas.width=canvas.parentNode.offsetWidth;
-	canvas.height=canvas.parentNode.offsetHeight;
+	canvas.height=canvas.parentNode.offsetHeight*0.4;
 }
 
 createjs.Ticker.setFPS(30);
@@ -31,6 +31,7 @@ function goSnow(){
 		var s=snowContainer.children[i];
 		s.y+=2;
 		s.alpha-=Math.random()*0.02;
+		s.rotation+=Math.random()*5;
 		if(s.alpha<=0 || s.y>=canvas.height){
 			snowContainer.removeChild(s);
 		}
@@ -38,8 +39,11 @@ function goSnow(){
 }
 // 创建雪花
 function createSnow(x,y,r,opacity){
-	var snow=new createjs.Shape();
-	snow.graphics.beginFill("rgb(255,255,255)").drawCircle(x,y,r);
+	var snow=new createjs.Bitmap("img/snow.png");
+	snow.x=x;
+	snow.y=y;
+	snow.scaleX=snow.scaleY=Math.random()*0.2+0.2;
+	snow.regX=snow.regY=25;
 	snow.alpha=opacity;
 	return snow;
 }

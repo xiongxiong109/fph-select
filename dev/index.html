@@ -13,18 +13,66 @@
 	<canvas id="canvas"></canvas>
 	<div class="main-wrap cl">
 		<div class="person-box fl">
-			<div class="person-title">您的队伍</div>
+			<div class="person-title">攻</div>
 			<div class="person-head">
 				<img src="img/placeholder.png">
 			</div>
+			<div class="person-card"></div>
 		</div>
-		<div class="select-box fl"></div>
-		<div class="person-box fl"></div>
+		<div class="select-box fl">
+			<div class="box-title">
+				<h3>现在轮到<em>你</em>来选择<em>房品汇英雄</em></h3>
+			</div>
+			<div class="person-select-wrap">
+				<ul id="js_selector" class="person-list cl">
+					<li><img src="img/php.png"></li>
+					<li><img src="img/html5.png"></li>
+					<li><img src="img/bower.png"></li>
+					<li><img src="img/grunt.png"></li>
+					<li><img src="img/yeoman.png"></li>
+					<li><img src="img/php.png"></li>
+					<li><img src="img/html5.png"></li>
+					<li><img src="img/bower.png"></li>
+					<li><img src="img/grunt.png"></li>
+					<li><img src="img/yeoman.png"></li>
+					<li><img src="img/php.png"></li>
+					<li><img src="img/html5.png"></li>
+					<li><img src="img/bower.png"></li>
+					<li><img src="img/grunt.png"></li>
+					<li><img src="img/yeoman.png"></li>
+					<li><img src="img/php.png"></li>
+					<li><img src="img/html5.png"></li>
+					<li><img src="img/bower.png"></li>
+					<li><img src="img/grunt.png"></li>
+					<li><img src="img/yeoman.png"></li>
+					<li><img src="img/php.png"></li>
+					<li><img src="img/html5.png"></li>
+					<li><img src="img/bower.png"></li>
+					<li><img src="img/grunt.png"></li>
+					<li><img src="img/yeoman.png"></li>
+					<li><img src="img/php.png"></li>
+					<li><img src="img/html5.png"></li>
+					<li><img src="img/bower.png"></li>
+					<li><img src="img/grunt.png"></li>
+					<li><img src="img/yeoman.png"></li>
+				</ul>
+			</div>
+			<button id="stepBtn" data-s0="请选择攻" data-s1="请选择受" data-running="点我停止">请选择攻</button>
+		</div>
+		<div class="person-box fl">
+			<div class="person-title">受</div>
+			<div class="person-head">
+				<img src="img/placeholder.png">
+			</div>
+			<div class="person-card">
+			</div>
+		</div>
 		<div class="info-box fl"></div>
 	</div>
 	<script type="text/javascript" src="../lib/jquery/dist/jquery.min.js"></script>
 	<script type="text/javascript" src="../lib/underscore/underscore-min.js"></script>
 	<script type="text/javascript" src="../lib/createjs/easeljs-NEXT.min.js"></script>
 	<script type="text/javascript" src="js/snow.js"></script>
+	<script type="text/javascript" src="js/box.js"></script>
 </body>
 </html>
