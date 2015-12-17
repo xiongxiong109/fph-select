@@ -15,59 +15,34 @@
 		<div class="person-box fl">
 			<div class="person-title">攻</div>
 			<div class="person-head">
-				<img src="img/placeholder.png">
+				<img src="img/placeholder.png" id="cardOneImg">
 			</div>
-			<div class="person-card"></div>
+			<div class="person-card" id="cardOne"></div>
 		</div>
 		<div class="select-box fl">
-			<div class="box-title">
-				<h3>现在轮到<em>你</em>来选择<em>房品汇英雄</em></h3>
+			<div class="box-title cl">
+				<h3 class="fl">现在轮到<em>你</em>来选择<em>房品汇英雄</em></h3>
+				<input type="text" id="searchInput" placeholder="搜索" class="fr">
 			</div>
 			<div class="person-select-wrap">
-				<ul id="js_selector" class="person-list cl">
-					<li><img src="img/php.png"></li>
-					<li><img src="img/html5.png"></li>
-					<li><img src="img/bower.png"></li>
-					<li><img src="img/grunt.png"></li>
-					<li><img src="img/yeoman.png"></li>
-					<li><img src="img/php.png"></li>
-					<li><img src="img/html5.png"></li>
-					<li><img src="img/bower.png"></li>
-					<li><img src="img/grunt.png"></li>
-					<li><img src="img/yeoman.png"></li>
-					<li><img src="img/php.png"></li>
-					<li><img src="img/html5.png"></li>
-					<li><img src="img/bower.png"></li>
-					<li><img src="img/grunt.png"></li>
-					<li><img src="img/yeoman.png"></li>
-					<li><img src="img/php.png"></li>
-					<li><img src="img/html5.png"></li>
-					<li><img src="img/bower.png"></li>
-					<li><img src="img/grunt.png"></li>
-					<li><img src="img/yeoman.png"></li>
-					<li><img src="img/php.png"></li>
-					<li><img src="img/html5.png"></li>
-					<li><img src="img/bower.png"></li>
-					<li><img src="img/grunt.png"></li>
-					<li><img src="img/yeoman.png"></li>
-					<li><img src="img/php.png"></li>
-					<li><img src="img/html5.png"></li>
-					<li><img src="img/bower.png"></li>
-					<li><img src="img/grunt.png"></li>
-					<li><img src="img/yeoman.png"></li>
-				</ul>
+				<ul id="js_selector" class="person-list cl"></ul>
+				<div id="mask"></div>
 			</div>
-			<button id="stepBtn" data-s0="请选择攻" data-s1="请选择受" data-running="点我停止">请选择攻</button>
+			<button id="stepBtn" disabled="disabled" data-s0="请手动选择攻" data-s1="点击随机选择受" data-s2="点击或按空格停止">请手动选择攻</button>
 		</div>
-		<div class="person-box fl">
+		<div class="person-box fr">
 			<div class="person-title">受</div>
 			<div class="person-head">
-				<img src="img/placeholder.png">
+				<img src="img/placeholder.png" id="cardTwoImg">
 			</div>
-			<div class="person-card">
+			<div class="person-card" id="cardTwo">
 			</div>
 		</div>
-		<div class="info-box fl"></div>
+		<div class="info-box cl">
+			<ul class="info-list">
+				<li><span class="name">grunt</span>开心地向<span class="name">html5</span>发起了礼物交换请求,二人基情四射,摸摸哒</li>
+			</ul>
+		</div>
 	</div>
 	<script type="text/javascript" src="../lib/jquery/dist/jquery.min.js"></script>
 	<script type="text/javascript" src="../lib/underscore/underscore-min.js"></script>
