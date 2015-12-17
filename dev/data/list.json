@@ -4,8 +4,20 @@
 		"src":"./img/html5.png"
 	},
 	{
-		"name":"php",
-		"src":"./img/php.png"
+		"name":"grunt",
+		"src":"./img/grunt.png"
+	},
+	{
+		"name":"bower",
+		"src":"./img/bower.png"
+	},
+	{
+		"name":"yeoman",
+		"src":"./img/yeoman.png"
+	},
+	{
+		"name":"html5",
+		"src":"./img/html5.png"
 	},
 	{
 		"name":"grunt",
@@ -24,91 +36,7 @@
 		"src":"./img/html5.png"
 	},
 	{
-		"name":"php",
-		"src":"./img/php.png"
-	},
-	{
-		"name":"grunt",
-		"src":"./img/grunt.png"
-	},
-	{
-		"name":"bower",
-		"src":"./img/bower.png"
-	},
-	{
-		"name":"yeoman",
-		"src":"./img/yeoman.png"
-	},
-	{
-		"name":"html5",
-		"src":"./img/html5.png"
-	},
-	{
-		"name":"php",
-		"src":"./img/php.png"
-	},
-	{
-		"name":"grunt",
-		"src":"./img/grunt.png"
-	},
-	{
-		"name":"bower",
-		"src":"./img/bower.png"
-	},
-	{
-		"name":"yeoman",
-		"src":"./img/yeoman.png"
-	},
-	{
-		"name":"html5",
-		"src":"./img/html5.png"
-	},
-	{
-		"name":"php",
-		"src":"./img/php.png"
-	},
-	{
-		"name":"grunt",
-		"src":"./img/grunt.png"
-	},
-	{
-		"name":"bower",
-		"src":"./img/bower.png"
-	},
-	{
-		"name":"yeoman",
-		"src":"./img/yeoman.png"
-	},
-	{
-		"name":"html5",
-		"src":"./img/html5.png"
-	},
-	{
-		"name":"php",
-		"src":"./img/php.png"
-	},
-	{
-		"name":"grunt",
-		"src":"./img/grunt.png"
-	},
-	{
-		"name":"bower",
-		"src":"./img/bower.png"
-	},
-	{
-		"name":"yeoman",
-		"src":"./img/yeoman.png"
-	},
-	{
-		"name":"html5",
-		"src":"./img/html5.png"
-	},
-	{
-		"name":"php",
-		"src":"./img/php.png"
-	},
-	{
-		"name":"grunt",
+		"name":"熊",
 		"src":"./img/grunt.png"
 	},
 	{

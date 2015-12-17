@@ -28,7 +28,7 @@
 				<ul id="js_selector" class="person-list cl"></ul>
 				<div id="mask"></div>
 			</div>
-			<button id="stepBtn" disabled="disabled" data-s0="请手动选择攻" data-s1="点击随机选择受" data-s2="点击或按空格停止">请手动选择攻</button>
+			<button id="stepBtn" disabled="disabled" data-s0="请点击小伙伴的头像,手动选择索取方" data-s1="确定" data-s2="请点击按钮随机选择交换方" data-s3="点击或按空格键停止" data-s4="再次抽取">请点击小伙伴的头像,手动选择索取方</button>
 		</div>
 		<div class="person-box fr">
 			<div class="person-title">受</div>
@@ -39,11 +39,10 @@
 			</div>
 		</div>
 		<div class="info-box cl">
-			<ul class="info-list">
-				<li><span class="name">grunt</span>开心地向<span class="name">html5</span>发起了礼物交换请求,二人基情四射,摸摸哒</li>
-			</ul>
+			<ul class="info-list" id="js_list"></ul>
 		</div>
 	</div>
+	<audio src="audio/bgm0.mp3" loop autoplay="autoplay" id="audio"></audio>
 	<script type="text/javascript" src="../lib/jquery/dist/jquery.min.js"></script>
 	<script type="text/javascript" src="../lib/underscore/underscore-min.js"></script>
 	<script type="text/javascript" src="../lib/createjs/easeljs-NEXT.min.js"></script>
