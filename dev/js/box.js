@@ -205,7 +205,10 @@ $(function(){
 	function hideLi(fn){
 		var oLis=$("#js_selector").find('li');
 		var oAct=oLis.filter('[class=active]');
-		cacheData.splice(oAct.data('id'),1);
+		var spliceIndex=_.findIndex(cacheData,{
+			id:oAct.data('id')
+		});
+		cacheData.splice(spliceIndex,1);
 		oAct.hide(400,function(){
 			oAct.remove();
 			if(fn){
