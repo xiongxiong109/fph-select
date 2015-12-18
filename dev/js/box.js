@@ -93,7 +93,7 @@ $(function(){
 	// 搜索框
 	var _dSearch=_.debounce(searchPerson,200);
 	function searchPerson(){
-		var searchStr=$(this).val();
+		var searchStr=$.trim($(this).val());
 		searchData=_.filter(cacheData,function(obj){
 			return new RegExp(searchStr,'gim').test(obj.name);
 		});
