@@ -94,24 +94,31 @@ body{
 	background-color:rgba(255,255,255,0.5);
 }
 .person-head.active{
-	background-image:-webkit-linear-gradient(top,#f28c2c, #9e3802);
+	background-image:-webkit-gradient(linear, 0 0, 0 100%, from(#f28c2c), to(#9e3802));
+	background-image:-webkit-linear-gradient(#f28c2c, #9e3802);
+	background-image:-moz-linear-gradient(#f28c2c, #9e3802);
+	background-image:-o-linear-gradient(#f28c2c, #9e3802);
+	background-image:linear-gradient(#f28c2c, #9e3802);
 }
 .person-select-wrap{
 	padding:4px;
 	position: relative;
 }
 .card-mini{
-	padding:0 20%;
+	padding:0 5%;
 	font-size: 18px;
 	font-weight: bold;
 	color: #fff;
 	text-shadow:1px 1px 1px #000;
+	overflow: hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
 }
 .person-list{
 	height: 300px;
 	overflow-y:auto;
 	overflow-x:hidden;
-	box-shadow: -2px 0px 4px #000;
+	border-bottom: 1px solid #8A3131;
 }
 #mask{
 	position: absolute;
@@ -121,6 +128,7 @@ body{
 	left: 0;
 	background-color:transparent;
 	display: none;
+	z-index: 99;
 }
 .select-box{
 	margin:50px 0 20px;
@@ -132,7 +140,7 @@ body{
 	overflow: hidden;
 }
 .select-box li{
-	width:5%;
+	width:10%;
 	padding:4px;
 	float: left;
 	position: absolute;
@@ -158,6 +166,11 @@ body{
 	-ms-transition: none;
 	-o-transition: none;
 	transition: none;
+	-webkit-transform:scale(0.9);
+	-moz-transform:scale(0.9);
+	-ms-transform:scale(0.9);
+	-o-transform:scale(0.9);
+	transform:scale(0.9);
 }
 .select-box li img{
 	width: 100%;
@@ -208,12 +221,20 @@ body{
 	outline: none;
 	border-radius:5px;
 	color:#fff;
-	background-image:-webkit-linear-gradient(top,#f28c2c, #9e3802);
+	background-image:-webkit-gradient(linear, 0 0, 0 100%, from(#f28c2c), to(#9e3802));
+	background-image:-webkit-linear-gradient(#f28c2c, #9e3802);
+	background-image:-moz-linear-gradient(#f28c2c, #9e3802);
+	background-image:-o-linear-gradient(#f28c2c, #9e3802);
+	background-image:linear-gradient(#f28c2c, #9e3802);
 	font-size:16px;
 	font-weight: bold;
 }
 #stepBtn:active{
-	background-image:-webkit-linear-gradient(bottom,#f28c2c, #9e3802);
+	background-image:-webkit-gradient(linear, 0 100%, 0 0, from(#f28c2c), to(#9e3802));
+	background-image:-webkit-linear-gradient(bottom, #f28c2c, #9e3802);
+	background-image:-moz-linear-gradient(bottom, #f28c2c, #9e3802);
+	background-image:-o-linear-gradient(bottom, #f28c2c, #9e3802);
+	background-image:linear-gradient(bottom, #f28c2c, #9e3802);
 }
 #stepBtn:disabled{
 	background-image:none;
