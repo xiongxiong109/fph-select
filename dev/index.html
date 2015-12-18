@@ -7,17 +7,18 @@
 	<meta http-equiv="Cache-Control" content="no-cache">
 	<meta http-equiv="Expires" content="0">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<title>房品汇--圣诞大匹配</title>
+	<title>房品汇--圣诞礼物交换趴</title>
 </head>
 <body>
 	<canvas id="canvas"></canvas>
 	<div class="main-wrap cl">
 		<div class="person-box fl">
-			<div class="person-title">攻</div>
+			<div class="person-title">发起邀请&gt;</div>
 			<div class="person-head">
 				<img src="img/placeholder.png" id="cardOneImg">
+				<span id="cardOne" class="card-mini"></span>
 			</div>
-			<div class="person-card" id="cardOne"></div>
+			<div class="person-card" id="cardOneBig"></div>
 		</div>
 		<div class="select-box fl">
 			<div class="box-title cl">
@@ -28,14 +29,17 @@
 				<ul id="js_selector" class="person-list cl"></ul>
 				<div id="mask"></div>
 			</div>
-			<button id="stepBtn" disabled="disabled" data-s0="请点击小伙伴的头像,手动选择索取方" data-s1="确定" data-s2="请点击按钮随机选择交换方" data-s3="点击或按空格键停止" data-s4="再次抽取">请点击小伙伴的头像,手动选择索取方</button>
+			<div class="btn-box">
+				<button id="stepBtn" disabled="disabled" data-s0="请点击小伙伴的头像,手动选择索取方" data-s1="确定" data-s2="请点击按钮随机选择交换方" data-s3="点击或按空格键停止" data-s4="再次抽取">请点击小伙伴的头像,手动选择索取方</button>
+			</div>
 		</div>
 		<div class="person-box fr">
-			<div class="person-title">受</div>
+			<div class="person-title">&lt;接受邀请</div>
 			<div class="person-head">
 				<img src="img/placeholder.png" id="cardTwoImg">
+				<span id="cardTwo" class="card-mini"></span>
 			</div>
-			<div class="person-card" id="cardTwo">
+			<div class="person-card" id="cardTwoBig">
 			</div>
 		</div>
 		<div class="info-box cl">

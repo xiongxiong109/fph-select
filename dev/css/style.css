@@ -15,7 +15,8 @@ html,body{
 	overflow-y: hidden;
 }
 body{
-	background-image:-webkit-linear-gradient(bottom,#0e0500 40%,#090504 60%, #000);
+	background:#E42440 url("../img/bg_body.png") center center repeat-y;
+	background-size:50%;
 	position: relative;
 }
 #canvas{
@@ -34,9 +35,12 @@ body{
 .person-card{
 	margin-top: 20px;
 	font-size: 26px;
-	line-height: 200px;
-	height: 200px;
+	line-height: 300px;
+	height: 300px;
 	background-color:rgba(255,255,255,0.5);
+	background-position: center center;
+	background-size: contain;
+	background-repeat:no-repeat;
 	border-radius: 4px;
 	text-align: center;
 	display: none;
@@ -60,10 +64,27 @@ body{
 	text-shadow:1px 1px 1px #00c;
 }
 .person-head{
-	background-color:rgba(255,255,255,0.5);
+	background:rgba(111, 193, 251, 0.5);
 	padding: 10px;
 	border-radius: 5px;
-	/*margin: 5px 0;*/
+	position:relative;
+}
+.person-head:after{
+	content: '';
+	display: block;
+	width: 80px;
+	height: 80px;
+	position: absolute;
+	right:-20px;
+	top:-40px;
+	z-index: 9;
+	background: url("../img/hat.png") center center no-repeat;
+	background-size: contain;
+	-webkit-transform: rotateZ(45deg);
+	-moz-transform: rotateZ(45deg);
+	-ms-transform: rotateZ(45deg);
+	-o-transform: rotateZ(45deg);
+	transform: rotateZ(45deg);
 }
 .person-head img{
 	width: 50px;
@@ -79,9 +100,18 @@ body{
 	padding:4px;
 	position: relative;
 }
+.card-mini{
+	padding:0 20%;
+	font-size: 18px;
+	font-weight: bold;
+	color: #fff;
+	text-shadow:1px 1px 1px #000;
+}
 .person-list{
 	height: 300px;
-	overflow:hidden;
+	overflow-y:auto;
+	overflow-x:hidden;
+	box-shadow: -2px 0px 4px #000;
 }
 #mask{
 	position: absolute;
@@ -98,8 +128,8 @@ body{
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-	background-color:rgba(0,0,0,0.5);
-	border: 1px solid #0cc;
+	background:rgba(0,0,0,0.5);
+	overflow: hidden;
 }
 .select-box li{
 	width:5%;
@@ -122,10 +152,16 @@ body{
 
 .select-box li.active img{
 	border-color:#45B6F9;
-	background-color:rgba(255,255,255,0);
+	background-color:rgba(255,255,255,0.5);
+	-webkit-transition: none;
+	-moz-transition: none;
+	-ms-transition: none;
+	-o-transition: none;
+	transition: none;
 }
 .select-box li img{
 	width: 100%;
+	height: 100%;
 	border: 2px solid #fff;
 	border-radius: 5px;
 	-webkit-transition:width 0.2s,height 0.2s, opacity 0.2s, background-color 0.2s;
@@ -141,7 +177,7 @@ body{
 	text-align: center;
 	padding: 8px 0;
 	color: #fff;
-	background-color:rgba(255,255,255,0.5);
+	background-color:rgba(116,74,158,0.5);
 }
 .box-title h3{
 	line-height:30px;
@@ -157,8 +193,7 @@ body{
 	margin:0 auto;
 	overflow:auto;
 	border-radius: 5px;
-	background-color:#7F7F7F;
-	box-shadow:4px 4px 4px #000 inset;
+	background-color:rgba(51, 41, 44, 0.6);
 }
 #js_selector{
 	position: relative;
@@ -172,7 +207,7 @@ body{
 	margin:5px auto;
 	outline: none;
 	border-radius:5px;
-	color:#000;
+	color:#fff;
 	background-image:-webkit-linear-gradient(top,#f28c2c, #9e3802);
 	font-size:16px;
 	font-weight: bold;
@@ -182,23 +217,26 @@ body{
 }
 #stepBtn:disabled{
 	background-image:none;
-	background-color: #ccc;
+	color: #000;
+	background-color:rgba(255,255,255,0.8);
 }
 #searchInput{
-	border:1px solid #ccc;
+	border:none;
 	width: 80px;
 	height: 30px;
 	margin-right: 8px;
 	border-radius: 5px;
 	padding:0 8px;
-	-webkit-transition: width 0.5s ease;
-	-moz-transition: width 0.5s ease;
-	-ms-transition: width 0.5s ease;
-	-o-transition: width 0.5s ease;
-	transition: width 0.5s ease;
+	background-color: #000;
+	-webkit-transition: width 0.5s ease, background-color 0.4s ease;
+	-moz-transition: width 0.5s ease, background-color 0.4s ease;
+	-ms-transition: width 0.5s ease, background-color 0.4s ease;
+	-o-transition: width 0.5s ease, background-color 0.4s ease;
+	transition: width 0.5s ease, background-color 0.4s ease;
 }
 #searchInput:focus{
 	width: 200px;
+	background-color: #fff;
 }
 
 .info-list{
@@ -209,7 +247,7 @@ body{
 	background-color:rgba(0,0,0,0.5);
 	color: #fff;
 	padding: 8px;
-	border-bottom: 1px solid #ccc;
+	border-bottom: 1px solid #5A90BF;
 }
 .name{
 	color: #ff0;

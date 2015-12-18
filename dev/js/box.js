@@ -74,12 +74,12 @@ $(function(){
 				break;
 				case 2: //停止抽取
 				randLi();
-				oAudio.attr('src','audio/select_music'+_.random(0,1)+'.mp3');
+				oAudio.attr('src','audio/select_music'+_.random(0,4)+'.mp3');
 				break;
 				case 3:
 				pushInfo();//消息入栈
 				stopTemp();//一次抽取结束,再次抽取开始
-				oAudio.attr('src','audio/bgm'+_.random(0,1)+'.mp3');
+				oAudio.attr('src','audio/bgm'+_.random(0,3)+'.mp3');
 				break;
 				case 4://重新布局
 				reloadLi();
@@ -110,6 +110,7 @@ $(function(){
 		headImg.parent().addClass('active');
 		headImg.attr('src',oLi.find('img').attr('src')).hide().fadeIn();
 		$("#cardOne").hide().text( oLi.data('name') ).fadeIn();
+		$("#cardOneBig").show().css('background-image','url('+oLi.data('big')+')');
 	}
 
 	//随机抽取后入栈操作
@@ -144,14 +145,15 @@ $(function(){
 	}
 
 	// 空格点击代替button
-	$(document).on('keyup',function(e){
+	$("#person-select-wrap").on('keyup',function(e){
 		if(e.keyCode==32){
 			oBtn.trigger('click');
 		}
 	});
 	//人物卡片重置
 	function personInit(){
-		$(".person-card").text('').hide();
+		$(".person-card").hide();
+		$(".card-mini").text('').hide();
 		$(".person-head").find('img').attr('src','img/placeholder.png');
 	}
 	//入栈
@@ -190,7 +192,9 @@ $(function(){
 		var oLis=$("#js_selector").find('li');
 		var headImg=$("#cardTwoImg");
 		var cardTwo=$("#cardTwo");
+		var cardTwoBig=$("#cardTwoBig");
 		cardTwo.show();
+		cardTwoBig.show();
 		clearInterval(randTimer);
 		randTimer=setInterval(function(){
 			var randIdx=_.random(0,oLis.length-1);
@@ -198,6 +202,7 @@ $(function(){
 			oLis.eq(randIdx).addClass('active');
 			cardTwo.text(oLis.eq(randIdx).data('name'));
 			headImg.attr('src',oLis.eq(randIdx).find('img').attr('src'));
+			cardTwoBig.css('background-image','url('+oLis.eq(randIdx).data('big')+')');
 		},20);
 		stepMove();
 	}
@@ -224,7 +229,7 @@ $(function(){
 	function createLi(data){
 		var strArr=[];
 		$.each(data,function(idx,obj){
-			strArr.push('<li data-name="'+obj.name+'" data-id="'+obj.id+'"><img src="'+obj.src+'" alt="" /></li>');
+			strArr.push('<li data-name="'+obj.name+'" data-id="'+obj.id+'" data-big="'+obj.src_big+'"><img src="'+obj.src+'" alt="" /></li>');
 		});
 		$("#js_selector").html(strArr.join(''));
 		showLis();

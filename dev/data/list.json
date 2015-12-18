@@ -1,50 +1,62 @@
 [
 	{
 		"name":"html5",
-		"src":"./img/html5.png"
+		"src":"./img/html5.png",
+		"src_big":"./img/html5.png"
 	},
 	{
 		"name":"grunt",
-		"src":"./img/grunt.png"
+		"src":"./img/grunt.png",
+		"src_big":"./img/grunt.png"
 	},
 	{
 		"name":"bower",
-		"src":"./img/bower.png"
+		"src":"./img/bower.png",
+		"src_big":"./img/bower.png"
 	},
 	{
 		"name":"yeoman",
-		"src":"./img/yeoman.png"
+		"src":"./img/yeoman.png",
+		"src_big":"./img/yeoman.png"
 	},
 	{
-		"name":"html5",
-		"src":"./img/html5.png"
+		"name":"陈力",
+		"src":"./img/head/chenli.jpg",
+		"src_big":"./img/big/chenli.jpg"
 	},
 	{
-		"name":"grunt",
-		"src":"./img/grunt.png"
+		"name":"方卉",
+		"src":"./img/head/fanghui.jpg",
+		"src_big":"./img/big/fanghui.jpg"
 	},
 	{
-		"name":"bower",
-		"src":"./img/bower.png"
+		"name":"龚黄慧",
+		"src":"./img/head/gonghuanghui.jpg",
+		"src_big":"./img/big/gonghuanghui.jpg"
 	},
 	{
-		"name":"yeoman",
-		"src":"./img/yeoman.png"
+		"name":"龚晓敏",
+		"src":"./img/head/gongxiaomin.jpg",
+		"src_big":"./img/big/gongxiaomin.jpg"
 	},
 	{
-		"name":"html5",
-		"src":"./img/html5.png"
+		"name":"梁莎莎",
+		"src":"./img/head/liangshasha.jpg",
+		"src_big":"./img/big/liangshasha.jpg"
 	},
 	{
-		"name":"熊",
-		"src":"./img/grunt.png"
+		"name":"弥海龙",
+		"src":"./img/head/mihailong.jpg",
+		"src_big":"./img/big/mihailong.jpg"
 	},
 	{
-		"name":"bower",
-		"src":"./img/bower.png"
+		"name":"郑登发",
+		"src":"./img/head/zhengdengfa.jpg",
+		"src_big":"./img/big/zhengdengfa.jpg"
 	},
 	{
-		"name":"yeoman",
-		"src":"./img/yeoman.png"
+		"name":"朱春燕",
+		"src":"./img/head/zhuchunyan.jpg",
+		"src_big":"./img/big/zhuchunyan.jpg"
 	}
 ]
