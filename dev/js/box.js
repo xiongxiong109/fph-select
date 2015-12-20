@@ -3,17 +3,24 @@ bug1:search并第一次选择后再次选择时,选项中并没有将第一次�
 bug2:点击li后再search,然后再点确定就没了
 */
 $(function(){
-	var randTimer=null;
+	var randTimer=null,randDoubleTimer=null;
 	var cacheData=[];//缓存数组
 	var searchData=[];//搜索数组
 	var cacheSpeak=[];//随机话术
 	var cacheState=[];//随机话术
 	var posArr=[];
-	var step=0;
+	var currentModel=0;//当前选择模式
+	var step=0,stepDouble=0;
 	var oBtn=$("#stepBtn");
+	var oDbtn=$("#doubleBtn");
 	var oAudio=$("#audio");
 	var oSearch=$("#searchInput");
+	var oModelBtn=$(".select-model-btn");
 	var infoStr=[];//消息框
+
+	//初始化选择模式
+	$(".btn").hide();
+	changeBtn();
 	// 初始化消息
 	$.getJSON('./data/speak.json',function(data){
 		cacheSpeak=$.extend([],data);
@@ -30,6 +37,13 @@ $(function(){
 		createLi(cacheData);
 	});
 
+	// 切换按钮
+	oModelBtn.on('click',function(){
+		if(step==0 && stepDouble==0){
+			currentModel=$(this).data('model');
+			changeBtn();
+		}
+	});
 	/*图片hover*/
 	var dBindInfo=_.debounce(bindInfo,500);
 	$("#js_selector").delegate("li","mouseenter",function(){
@@ -90,6 +104,33 @@ $(function(){
 		_dClick();
 	});
 
+	/*双选按钮*/
+	var _doubleMove=_.debounce(moveStepDouble,200);
+	function moveStepDouble(){
+		var len=cacheData.length;
+		if(len<2){//当配对人数小于一个的时候
+			over();
+		}
+		switch(stepDouble){
+			case 0 ://点击开始双选
+			randDoubleLi();
+			oAudio.attr('src','audio/select_music'+_.random(0,4)+'.mp3');
+			break;
+			case 1:
+			pushInfo();//消息入栈
+			stopDoubleTemp();//一次抽取结束,再次抽取开始
+			oAudio.attr('src','audio/bgm'+_.random(0,3)+'.mp3');
+			break;
+		}
+		stepDouble++;
+		if(stepDouble>2){
+			stepDouble=0;
+		}
+		oDbtn.text(oDbtn.data('s'+stepDouble));
+	}
+	oDbtn.on('click',function(){
+		_doubleMove();
+	});
 	// 搜索框
 	var _dSearch=_.debounce(searchPerson,200);
 	function searchPerson(){
@@ -127,6 +168,10 @@ $(function(){
 			stepMove();
 		});
 	}
+	function stopDoubleTemp(){
+		clearInterval(randDoubleTimer);
+		setTimeout(hideLi,1e3);
+	}
 	// 处理下一步的逻辑,当有参数传递进来的时候,就走到参数的步数,否则就默认往后走一步
 	function stepMove(moveTo){
 		if(moveTo){
@@ -158,8 +203,9 @@ $(function(){
 	}
 	//入栈
 	function pushInfo(){
-		var str=$("#js_selector").find('li').filter('[class=active]').data('name');
-		infoStr.push(str);
+		$("#js_selector").find('li').filter('[class=active]').each(function(idx,ele){
+			infoStr.push($(ele).data('name'));
+		});
 		if(infoStr.length>=2){//当搜集到两个配对的名字的时候,就创建消息
 			createInfo();
 		}
@@ -172,9 +218,9 @@ $(function(){
 		infoStr.shift(),
 		'</span>',
 		_.sample(cacheSpeak).speak,
-		'向<span class="name">',
+		'与<span class="name">',
 		infoStr.shift(),
-		'</span>发起了礼物交换请求,',
+		'</span>进行了礼物交换,',
 		_.sample(cacheState).state,
 		'</li>'
 		].join('');
@@ -206,14 +252,40 @@ $(function(){
 		},20);
 		stepMove();
 	}
+
+	function randDoubleLi(){
+		var oLis=$("#js_selector").find('li');
+		var headOneImg=$("#cardOneImg"),headTwoImg=$("#cardTwoImg");
+		var cardTwo=$("#cardTwo"),cardOne=$("#cardOne");
+		var cardTwoBig=$("#cardTwoBig"),cardOneBig=$("#cardOneBig");
+		$(".person-card").show();
+		$(".card-mini").show();
+		clearInterval(randDoubleTimer);
+		randDoubleTimer=setInterval(function(){
+			var randA=_.sample(cacheData,2);
+			oLis.removeClass('active');
+			oLis.filter('[data-id='+randA[0].id+']').addClass('active');
+			oLis.filter('[data-id='+randA[1].id+']').addClass('active');
+
+			headOneImg.attr('src',randA[0].src);
+			cardOne.text(randA[0].name);
+			cardOneBig.css('background-image','url('+randA[0].src_big+')');
+
+			headTwoImg.attr('src',randA[1].src);
+			cardTwo.text(randA[1].name);
+			cardTwoBig.css('background-image','url('+randA[1].src_big+')');
+		},20);
+	}
 	//删除active的li
 	function hideLi(fn){
 		var oLis=$("#js_selector").find('li');
 		var oAct=oLis.filter('[class=active]');
-		var spliceIndex=_.findIndex(cacheData,{
-			id:oAct.data('id')
+		oAct.each(function(idx,ele){
+			var spliceIndex=_.findIndex(cacheData,{
+				id:$(ele).data('id')
+			});
+			cacheData.splice(spliceIndex,1);
 		});
-		cacheData.splice(spliceIndex,1);
 		oAct.hide(400,function(){
 			oAct.remove();
 			if(fn){
@@ -222,7 +294,12 @@ $(function(){
 			else{
 				showLis();
 			}
-			stepMove();
+			if(currentModel==0){
+				stepMove();
+			}
+			else{
+				oDbtn.text('再次抽取');
+			}
 		});
 	}
 	// 创建li
@@ -253,9 +330,28 @@ $(function(){
 		});
 	}
 
+	//切换选择按钮
+	function changeBtn(){
+		if(currentModel==0){//单选模式
+			$("#mask").hide();
+			oBtn.show();
+			oDbtn.hide();
+			oSearch.removeAttr('disabled');
+		}
+		else if(currentModel==1){//多选模式
+			$("#mask").show();
+			oDbtn.show();
+			oBtn.hide();
+			oSearch.attr('disabled', 'disabled');
+		}
+		oModelBtn.removeClass('active');
+		oModelBtn.eq(currentModel).addClass('active');
+	}
 	//结束函数
 	function over(){
 		oBtn.off('click');
+		oDbtn.off('click');
 		oBtn.attr('disabled','disabled').text('游戏结束,没有阔以继续配对的啦~');
+		oDbtn.attr('disabled','disabled').text('游戏结束,没有阔以继续配对的啦~');
 	}
 });

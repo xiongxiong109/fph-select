@@ -13,7 +13,7 @@
 	<canvas id="canvas"></canvas>
 	<div class="main-wrap cl">
 		<div class="person-box fl">
-			<div class="person-title">发起邀请&gt;</div>
+			<div class="person-title">礼物交换&gt;</div>
 			<div class="person-head">
 				<img src="img/placeholder.png" id="cardOneImg">
 				<span id="cardOne" class="card-mini"></span>
@@ -21,8 +21,12 @@
 			<div class="person-card" id="cardOneBig"></div>
 		</div>
 		<div class="select-box fl">
+			<div class="select-model-wrap cl">
+				<div><a href="javascript:void(0);" class="select-model-btn active fl" data-model="0">单选模式</a></div>
+				<div><a href="javascript:void(0);" class="select-model-btn fr" data-model="1">双选模式</a></div>
+			</div>
 			<div class="box-title cl">
-				<h3 class="fl">现在轮到<em>你</em>来选择<em>房品汇英雄</em></h3>
+				<h3 class="fl">现在轮到<em>你</em>来选择<em>房品汇伙伴</em></h3>
 				<input type="text" id="searchInput" placeholder="搜索" class="fr">
 			</div>
 			<div class="person-select-wrap">
@@ -30,11 +34,12 @@
 				<div id="mask"></div>
 			</div>
 			<div class="btn-box">
-				<button id="stepBtn" disabled="disabled" data-s0="请点击小伙伴的头像,手动选择索取方" data-s1="确定" data-s2="请点击按钮随机选择交换方" data-s3="点击或按空格键停止" data-s4="再次抽取">请点击小伙伴的头像,手动选择索取方</button>
+				<button id="stepBtn" class="btn" disabled="disabled" data-s0="请点击小伙伴的头像,手动选择索取方" data-s1="确定" data-s2="请点击按钮随机选择交换方" data-s3="点击或按空格键停止" data-s4="再次抽取" data-d="点击开始双选">请点击小伙伴的头像,手动选择索取方</button>
+				<button id="doubleBtn" class="btn" data-s0="点击开始双选" data-s1="点击停止" data-s2="再次抽取">点击开始双选</button>
 			</div>
 		</div>
 		<div class="person-box fr">
-			<div class="person-title">&lt;接受邀请</div>
+			<div class="person-title">&lt;礼物交换</div>
 			<div class="person-head">
 				<img src="img/placeholder.png" id="cardTwoImg">
 				<span id="cardTwo" class="card-mini"></span>
